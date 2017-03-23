@@ -10,4 +10,21 @@ namespace AppBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    // SELECT user.id, user.username, COUNT(borrow.id)
+    // FROM user
+    // LEFT JOIN borrow ON user.id = borrow.user_id
+    // GROUP BY user_id
+
+    public function findLastUser($limit) {
+        return $this->getEntityManager()
+                ->createQueryBuilder()
+                ->select('u AS user, COUNT(borrow.id) AS count_b')
+                ->from('AppBundle:user', 'u')
+                ->leftJoin('u.borrows', 'borrow')
+                ->groupBy('u.id')
+                ->setMaxResults($limit)
+                ->getQuery()
+                ->getResult()
+                ;
+    }
 }

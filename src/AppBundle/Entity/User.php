@@ -41,14 +41,14 @@ class User implements UserInterface{
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=255, unique=true)
+     * @ORM\Column(name="username", type="string", length=100, unique=true)
      */
     private $username;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @ORM\Column(name="email", type="string", length=100, unique=true)
      */
     private $email;
 
@@ -58,7 +58,7 @@ class User implements UserInterface{
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
-    
+
     /**
      * @Assert\NotBlank()
      * @Assert\Length(max=4096)
@@ -67,14 +67,14 @@ class User implements UserInterface{
 
     /**
      * @var array
-     * 
+     *
      * @ORM\Column(type="json_array")
      */
     private $roles = [];
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
-     * 
+     *
      * @ORM\OneToMany(targetEntity="Borrow", mappedBy="user")
      */
     private $borrows;
@@ -197,7 +197,7 @@ class User implements UserInterface{
     public function getPassword() {
         return $this->password;
     }
-    
+
     function getPlainPassword() {
         return $this->plainPassword;
     }
@@ -271,11 +271,11 @@ class User implements UserInterface{
     }
 
     public function eraseCredentials() {
-        
+
     }
 
     public function getSalt() {
-        
+
     }
 
 }

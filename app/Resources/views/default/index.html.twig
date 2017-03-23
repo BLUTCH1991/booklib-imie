@@ -86,26 +86,12 @@
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item">
-                                <span class="badge">223 échanges</span>
-                                Guillaume C.
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge">187 échanges</span>
-                                Florian C.
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge">155 échanges</span>
-                                Emilie D.
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge">152 échanges</span>
-                                Bastien B.
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge">150 échanges</span>
-                                Kevin C.
-                            </a>
+                            {% for item in users %}
+                                <a href="#" class="list-group-item">
+                                    <span class="badge">{{ item.count_b }} échanges</span>
+                                    {{ item.user.username }}
+                                </a>
+                            {% endfor %}
                         </div>
                         <a class="btn btn-primary btn-block"><i class="fa fa-users"></i> Voir tous les utilisateurs</a>
                     </div>

@@ -15,10 +15,12 @@ class DefaultController extends Controller {
     public function indexAction(Request $request) {
         $categories = $this->getDoctrine()->getRepository("AppBundle:Category")->findAll();
         $lastBooks = $this->getDoctrine()->getRepository("AppBundle:Book")->findLast(3);
+        $users = $this->getDoctrine()->getRepository("AppBundle:User")->findLastUser(5);
 
         return $this->render('default/index.html.twig', [
                     "categories" => $categories,
-                    "lastBooks" => $lastBooks
+                    "lastBooks" => $lastBooks,
+                    "users" => $users
         ]);
     }
 
