@@ -1,0 +1,17 @@
+{# app/Resources/TwigBundle/views/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="error">
+    <h1>403</h1>
+    <h2>Page non trouvé</h2>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {# ... #}
+    {% endif %}
+
+    <p>
+        Vous vous êtes perdu, <a href="{{ path('homepage') }}">cliquez-ici pour retourné sur la page d'accueil</a>.
+    </p>
+  </section>
+{% endblock %}

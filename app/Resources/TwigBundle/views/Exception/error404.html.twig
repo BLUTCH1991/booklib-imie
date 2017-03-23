@@ -1,0 +1,24 @@
+{# app/Resources/TwigBundle/views/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="error">
+  <div class="content-error">
+    <h1>404</h1>
+    <h2>Thomas s'est enfuit !</h2>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {# ... #}
+    {% endif %}
+
+    <p>
+        Pour retourner sur la page d'accueil attrapre Thomas !
+    </p>
+
+
+
+  </div>
+  
+    <a href="{{ path('homepage') }}"><img id="thomas" src="{{ asset('uploads/thomas.jpg') }}" alt="{{ book.title }}"></a>
+  </section>
+{% endblock %}

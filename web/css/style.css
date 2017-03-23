@@ -57,3 +57,11 @@ footer.site-footer {
     height: 400px;
     width: 100%;
 }
+footer.site-footer{margin-top: 0px;}
+.content-error{position:relative;top: 15%;}
+@keyframes thomas{0%{right: -332px;transform: rotate(0deg);margin-right: 0px;}25%{margin-right: 115px;right: -332px;transform: rotate(-70deg);}50%{margin-right: 0px;-332px;transform: rotate(0deg);}100%{right: calc(100% + 332px);}}
+
+.error img#thomas{animation:thomas 5s 1.5s ease-in-out infinite;}
+
+.error{text-align: center;width: 100%;margin: auto;height: calc(100vh - 164px);position:relative;overflow: hidden;}
+.error img{position: absolute;bottom: 0px;right: -332px;}
