@@ -23,4 +23,22 @@ class BookRepository extends \Doctrine\ORM\EntityRepository {
         ;
     }
 
+    public function getRandomBooks($bookId){
+
+        $sql = 'SELECT * 
+                FROM book_lib.book 
+                INNER JOIN book_lib.author
+                ON book.author_id = author.id
+                WHERE book.id != :notId
+                ORDER BY rand() 
+                LIMIT 3 ;';
+
+        $em = $this->getEntityManager();
+        $stmt = $em->getConnection()->prepare($sql);
+        $stmt->bindParam(':notId', $bookId);
+        $stmt->execute();
+        return $stmt->fetchAll();
+
+    }
+
 }
