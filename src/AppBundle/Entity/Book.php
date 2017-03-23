@@ -63,17 +63,17 @@ class Book {
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;
-    
+
     /**
      * @var string
-     * 
-     * @ORM\Column(name="slug", type="string", length=255, unique=true)
+     *
+     * @ORM\Column(name="slug", type="string", length=100, unique=true)
      */
     private $slug;
 
     /**
      * @var Author
-     * 
+     *
      * @ORM\ManyToOne(targetEntity="Author", inversedBy="books")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
@@ -81,7 +81,7 @@ class Book {
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
-     * 
+     *
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="books")
      * @ORM\JoinTable(name="books_categories")
      */
@@ -89,7 +89,7 @@ class Book {
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
-     * 
+     *
      * @ORM\OneToMany(targetEntity="Borrow", mappedBy="book")
      */
     private $borrows;
