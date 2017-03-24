@@ -8,6 +8,12 @@
 
 {% block body %}
 
+    {% if lastBorrow.boxTo %}
+        {{ lastBorrow.boxTo.address }}
+    {% else %}
+        {{ lastBorrow.user.username }}
+    {% endif %}
+
     <section class="container">
         <div class="row">
             <div class="col-md-4">

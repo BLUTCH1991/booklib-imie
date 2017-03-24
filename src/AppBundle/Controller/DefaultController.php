@@ -29,10 +29,12 @@ class DefaultController extends Controller {
      */
     public function showBookAction(\AppBundle\Entity\Book $book) {
         $otherBooks = $this->getDoctrine()->getRepository("AppBundle:Book")->getRandomBooks($book->getId());
+        $lastBorrow = $this->getDoctrine()->getRepository("AppBundle:Book")->getLastBorrow($book->getId());
 
         return $this->render('book/show.html.twig', [
                     "book" => $book,
-                    "otherBooks" => $otherBooks
+                    "otherBooks" => $otherBooks,
+                    "lastBorrow" => $lastBorrow
         ]);
     }
 
